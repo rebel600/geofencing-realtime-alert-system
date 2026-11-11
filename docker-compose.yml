@@ -9,6 +9,7 @@ services:
       - "5433:5432"
     volumes:
       - pgdata:/var/lib/postgresql/data
+      - ./backend/scripts/initdb:/docker-entrypoint-initdb.d:ro
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U geo -d geofencing"]
       interval: 3s
@@ -31,6 +32,17 @@ services:
       db:
         condition: service_healthy
     restart: unless-stopped
+
+  web:
+    build:
+      context: ./frontend
+      args:
+        VITE_API_URL: http://localhost:${API_PORT:-8080}
+        VITE_API_KEY: ${API_KEY:-}
+    ports:
+      - "${WEB_PORT:-3000}:80"
+    depends_on:
+      - api
 
 volumes:
   pgdata:
