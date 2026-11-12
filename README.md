@@ -8,9 +8,9 @@ Track vehicles against polygonal geofences and get instant alerts when they ente
 
 | | Link |
 |---|---|
-| Frontend | _TBD_ |
-| Backend API | _TBD_ |
-| Docker image | _TBD_ |
+| Frontend | https://geofencing-realtime-alert-system-lilac.vercel.app |
+| Backend API | https://grtas.duckdns.org (WebSocket: `wss://grtas.duckdns.org/ws/alerts`) |
+| Docker image | [`rebel600/geofencing-api`](https://hub.docker.com/r/rebel600/geofencing-api) (`docker pull rebel600/geofencing-api:latest`) |
 | Video walkthrough | _TBD_ |
 
 **Setup, API guide (curl), frontend guide and architecture: see [SETUP.md](SETUP.md).**

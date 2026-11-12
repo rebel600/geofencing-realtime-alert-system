@@ -232,6 +232,12 @@ React (Vite) ──REST──▶ Go API (net/http) ──pgx──▶ PostgreSQL
 
 ## 8. Deployment
 
+**Live deployment:** backend at `https://grtas.duckdns.org` (Go binary as a systemd service behind nginx + Let's Encrypt on AWS EC2, ap-south-1), database on Supabase (PostGIS), frontend on Vercel. Image: `rebel600/geofencing-api` on Docker Hub.
+
+```bash
+docker run -p 8080:8080 -e DATABASE_URL="postgres://..." rebel600/geofencing-api:latest
+```
+
 **Backend image**
 ```bash
 docker build -t <dockerhub-user>/geofencing-api:latest ./backend
